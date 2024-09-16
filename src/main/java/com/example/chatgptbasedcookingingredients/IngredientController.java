@@ -19,7 +19,7 @@ public class IngredientController {
     }
 
     @PostMapping("/recipes")
-    String generateRecipe(@RequestBody String ingredients){
+    String generateRecipe(@RequestBody String ingredients) {
         return service.generateRecipe(ingredients);
     }
 }
