@@ -1,4 +1,5 @@
 package com.example.chatgptbasedcookingingredients;
- public record OpenAiChoices(OpenAiMessage message) {
+
+public record OpenAiChoices(OpenAiMessage message) {
     }
 
