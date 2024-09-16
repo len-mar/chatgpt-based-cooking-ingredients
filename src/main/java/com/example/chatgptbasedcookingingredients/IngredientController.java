@@ -1,4 +1,5 @@
 package com.example.chatgptbasedcookingingredients;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,5 +16,10 @@ public class IngredientController {
     @PostMapping
     String categorizeIngredient(@RequestBody String ingredient) {
         return service.categorizeIngredient(ingredient);
-}
     }
+
+    @PostMapping("/recipes")
+    String generateRecipe(@RequestBody String ingredients){
+        return service.generateRecipe(ingredients);
+    }
+}

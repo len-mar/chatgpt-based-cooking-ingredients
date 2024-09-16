@@ -40,4 +40,25 @@ public class IngredientService {
 
         return response.getAnswer();
     }
+
+    // todo: Let ChatGPT create a cooking instruction for a dish with the given list of ingredients in another controller.
+    //  The result object should contain a title, description, and list of ingredients.
+    public String generateRecipe(String ingredients) {
+        // builds request, incl a model and a list of messages (containing a user and their prompt) and a temperature to define specificity
+        OpenAIRequest request = new OpenAIRequest("gpt-4o-mini",
+                List.of(new OpenAiMessage(
+                        "user",
+                        "recipe with title, description and list of ingredients using: " + ingredients)),
+                0.2
+        );
+
+        // sends request and maps response onto our response object (and returns just the answer field)
+        OpenAiResponse response = restClient.post()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(request)
+                .retrieve()
+                .body(OpenAiResponse.class);
+
+        return response.getAnswer();
+    }
 }
