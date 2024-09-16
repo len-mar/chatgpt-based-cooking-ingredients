@@ -10,10 +10,10 @@ import java.util.List;
 // builds our client to communicate with openai's api
 // and specifies request and response for our ingredient method
 @Service
-public class IngredientService {
+public class KitchenService {
     private final RestClient restClient;
 
-    public IngredientService(@Value("${AUTH_KEY}") String key) {
+    public KitchenService(@Value("${AUTH_KEY}") String key) {
         // passes the api key via header
         this.restClient = RestClient.builder()
                 .defaultHeader("Authorization", "Bearer " + key)

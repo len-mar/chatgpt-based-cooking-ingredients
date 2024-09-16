@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 // handles post mapping for our requests and nothing else
 @RestController
-@RequestMapping("/ingredients")
+@RequestMapping
 @RequiredArgsConstructor
-public class IngredientController {
-    private final IngredientService service;
+public class KitchenController {
+    private final KitchenService service;
 
-    @PostMapping
+    @PostMapping("/ingredient")
     String categorizeIngredient(@RequestBody String ingredient) {
         return service.categorizeIngredient(ingredient);
     }
 
-    @PostMapping("/recipes")
+    @PostMapping("/recipe")
     String generateRecipe(@RequestBody String ingredients) {
         return service.generateRecipe(ingredients);
     }
